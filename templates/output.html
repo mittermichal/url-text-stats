@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis results</title>
+</head>
+<body>
+<p>Longest word: {{ result.longest_word }} </p>
+<p>Most common letter:
+{% if result.most_frequent_letter %}
+    {{ result.most_frequent_letter[0][0] }} - {{ result.most_frequent_letter[0][1] }}x</p>
+{% else %}
+    None
+{% endif %}
+<table border="1">
+    <thead><td colspan="2">Word Frequency</td></thead>
+    <thead><td>Word</td><td>Count</td></thead>
+{% for word,count in result.word_frequency.items() %}
+    <tr><td>{{ word }}</td><td> {{ count }}</td></tr>
+{% endfor %}
+</table>
+</body>
+</html>
